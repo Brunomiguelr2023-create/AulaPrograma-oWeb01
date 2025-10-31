@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cadastro de voluntarios</title>
+        <link rel="stylesheat" href="style.css">
+    </head>
+    <body>
+        <!-- Heander -->
+        </header>
+            <nav>
+                <div class="logo">&#128153; voluntarios</div>
+                < button class="menu-toggle" onclick="toggleMenu()"></button>
+                <ul id="navMenu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="projeto.html">projetos</a></li>
+                    <li><a href="cadastro.html" class="active">Cadastro</a></li>
+                </ul>
+            <nav>
+        <header
+            
+    
+        <section class="hero hero-cadastro">
+            <div class="hero-content">
+                <h1>Cadastre-se como voluntario</h1>
+                <p>Junte-se a nós e faça a diferença na vida de muitas pessoas através do voluntariado.</p>
+            </div>
+        </section>
+
+        <!formulario de cadastro>
+        <main>
+            <section class="signup-section">
+                <h2>cadastro de voluntariado</h2>
+                <div class="success-message" id="success-message">
+                     cadastro realizado com sucesso! emtraremos em contato em breve. 
+                </div>
+                <form id="volunteerform" ansubmit="handleSubmit(event)">
+                    <fieldset
+                    <legend>Dados Pessoas</legend>
+                    <div class="form-group">
+                        <label for="nome">Nome Completo *</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                <div class="form-group">
+                    <label for="email">E-mail *</label>
+                    <input type="email" id="name="email" required>
+                     </div>
+                    </div class="form-group">
+                        <label for="telefone">Telefone*</label>
+                        <section type="tel" id="telefone" name="telefone" placeholder=""(11) 945725575 aria-required>
+                        </div>
+                    </div class="form-group">
+                        <label for="idade">Idade *</label>
+                        <input type="number" id="idade" name="idade" min="16" max="100" required>
+                    </div>
+                    <fieldset>
+
+                    <fieldset>
+                        <legend>disponibilidade</legend>
+                        <div class="form-group">
+                            <label for="disponibilidade">Quando vocé pode ajudar? *</label>
+                            <select id="disponibilidade" name="disponibilidade" required>
+                                <option value="">Selecione...</option>
+                                <option value="fins-de-semana">fins de semana</option>
+                                <option value="dias-uteis-">Dias Úteis</option>
+                                <option value="flexivel">Horario flexivel</option>
+                                <option value="pontual">Ações pontuais</option>
+                            </select>
+                        </div>
+                    <div class="form-group">
+                        <label for="area-interesse">Área de Interesse *</label>
+                        <select id="area-interesse" name="area-interesse" required>
+                            <option value=""><Selecione...</option>
+                            <option value="distribuição-alimentos">Distribuição de Alimentos</option>
+                            <option value="educacão">Educação e Capacitação</option>
+                            <option value="saude">Apoio á Saúde</option>
+                            <option value="administrativo">Apoio Administrativo</option>
+                            <option value="qualquer">Qualquer área</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                    </fieldset>
+                        <legend>Informação Adicionais</legend>
+                        <div class="form-group">
+                            <label for="experiencia" name="experiencia">Vocé ja participou de ações voluntarias antes?</label>
+                            <textarea id="experiencia" namer="experiencia" placeholder="conte-nos sobre sua experiencia..."
+                         </div>
+                     
+
+  
+                        </section>
+
+            
+            </section
+        </main>
