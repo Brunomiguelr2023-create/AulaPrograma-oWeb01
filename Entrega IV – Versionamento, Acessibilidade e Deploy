@@ -1,0 +1,202 @@
+main (ou master) → branch de produção
+develop → branch de desenvolvimento
+feature/* → novas funcionalidades
+release/* → preparação de nova versão
+hotfix/* → correções urgentes em produção
+# Inicializar repositório
+git init
+
+# Criar branch principal e de desenvolvimento
+git checkout -b main
+git checkout -b develop
+git checkout develop
+git checkout -b feature/nome-da-feature
+# ... desenvolver código ...
+git add .
+git commit -m "feat: descrição da nova funcionalidade"
+git checkout develop
+git merge feature/nome-da-feature
+git branch -d feature/nome-da-feature
+git checkout develop
+git checkout -b release/1.0.0
+# ... testes e ajustes ...
+git commit -m "chore: ajustes finais da versão 1.0.0"
+git checkout main
+git merge release/1.0.0
+git tag -a v1.0.0 -m "Versão 1.0.0"
+git checkout develop
+git merge release/1.0.0
+git branch -d release/1.0.0
+git checkout main
+git checkout -b hotfix/1.0.1
+# ... correção ...
+git commit -m "fix: corrigido erro de validação no formulário"
+git checkout main
+git merge hotfix/1.0.1
+git tag -a v1.0.1 -m "Versão 1.0.1"
+git checkout develop
+git merge hotfix/1.0.1
+git branch -d hotfix/1.0.1
+git commit -m "feat: adicionar validação de CPF no formulário de cadastro"
+git commit -m "fix: corrigir erro na máscara de telefone"
+git commit -m "docs: atualizar README com instruções de execução"
+git tag -a v1.0.0 -m "Primeira versão estável"
+git tag -a v1.1.0 -m "Adicionado sistema de login"
+git tag -a v1.1.1 -m "Correção de bug no modal de login"
+git push origin --tags
+# Conectar repositório remoto
+git remote add origin https://github.com/seu-usuario/nome-do-projeto.git
+
+# Subir branches principais
+git push -u origin main
+git push -u origin develop
+
+# Subir todas as branches e tags
+git push --all
+git push --tags
+<button>Enviar</button>
+<a href="#conteudo" class="skip-link">Ir para o conteúdo</a>
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+button:focus, a:focus, input:focus {
+  outline: 3px solid #0066ff;
+  outline-offset: 2px;
+}
+<header>
+  <h1>Organização Exemplo</h1>
+  <nav aria-label="Menu principal">
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="projetos.html">Projetos</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="conteudo">
+  <section aria-labelledby="sec-projetos">
+    <h2 id="sec-projetos">Nossos Projetos</h2>
+    <article>
+      <h3>Projeto Sustentável</h3>
+      <p>Descrição acessível do projeto...</p>
+    </article>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 Organização Exemplo</p>
+</footer>
+body {
+  color: #222;
+  background-color: #fff;
+}
+
+/* Botão acessível */
+button {
+  background-color: #0053ba;
+  color: #fff;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+}
+button:hover {
+  background-color: #003f8c;
+}
+<img src="logo.png" alt="Logotipo da Organização Exemplo">
+
+<form aria-label="Formulário de contato">
+  <label for="nome">Nome Completo</label>
+  <input id="nome" name="nome" type="text" required>
+
+  <label for="email">E-mail</label>
+  <input id="email" name="email" type="email" required>
+
+  <button type="submit">Enviar</button>
+</form>
+<button id="toggle-contrast">Alto Contraste</button>
+<button id="toggle-theme">Modo Escuro</button>
+body.light {
+  background-color: #ffffff;
+  color: #222;
+}
+
+body.dark {
+  background-color: #1c1c1c;
+  color: #f2f2f2;
+}
+
+body.high-contrast {
+  background-color: #000;
+  color: #ff0;
+}
+document.getElementById('toggle-contrast').addEventListener('click', () => {
+  document.body.classList.toggle('high-contrast');
+});
+
+document.getElementById('toggle-theme').addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+});
+npm init -y
+npm install clean-css-cli terser html-minifier --save-dev
+"scripts": {
+  "minify:css": "cleancss -o dist/style.min.css src/style.css",
+  "minify:js": "terser src/script.js -o dist/script.min.js -c -m",
+  "minify:html": "html-minifier --collapse-whitespace --remove-comments --minify-js true --minify-css true src/index.html -o dist/index.html",
+  "build": "npm run minify:css && npm run minify:js && npm run minify:html"
+}
+npm run build
+src/
+  style.css
+  script.js
+  index.html
+dist/
+  style.min.css
+  script.min.js
+  index.html
+  npm install imagemin-cli imagemin-mozjpeg imagemin-pngquant imagemin-svgo --save-dev
+  "scripts": {
+  "optimize:img": "imagemin src/images/* --plugin=pngquant --plugin=mozjpeg --plugin=svgo --out-dir=dist/images"
+}
+npm install gulp gulp-clean-css gulp-terser gulp-htmlmin gulp-imagemin --save-dev
+const gulp = require('gulp');
+const cleanCSS = require('gulp-clean-css');
+const terser = require('gulp-terser');
+const htmlmin = require('gulp-htmlmin');
+const imagemin = require('gulp-imagemin');
+
+gulp.task('minify-css', () =>
+  gulp.src('src/css/*.css')
+      .pipe(cleanCSS())
+      .pipe(gulp.dest('dist/css'))
+);
+
+gulp.task('minify-js', () =>
+  gulp.src('src/js/*.js')
+      .pipe(terser())
+      .pipe(gulp.dest('dist/js'))
+);
+
+gulp.task('minify-html', () =>
+  gulp.src('src/*.html')
+      .pipe(htmlmin({ collapseWhitespace: true, removeComments: true }))
+      .pipe(gulp.dest('dist'))
+);
+
+gulp.task('optimize-img', () =>
+  gulp.src('src/images/*')
+      .pipe(imagemin())
+      .pipe(gulp.dest('dist/images'))
+);
+
+gulp.task('build', gulp.parallel('minify-css', 'minify-js', 'minify-html', 'optimize-img'));
